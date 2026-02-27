@@ -62,12 +62,12 @@ body {
 .nav-logo {
     display: flex;
     justify-content: center;
-    padding : 0 15px;
+    padding : 0 50px;
 }
 
 .nav-logo img {
-    height: 85px; 
-    width: 140px;  /* slightly smaller for premium look */
+    height: 60px; 
+      /* slightly smaller for premium look */
     opacity: 0.95;
 }
 .hero {
