@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact | ASME BITS Pilani</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-wrapper">
+
+        <div class="nav-group left">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT US</a>
+            <a href="/team">TEAM</a>
+            <a href="/sponsors">SPONSORS</a>
+        </div>
+
+        <div class="nav-logo">
+            <img src="/images/asme-logo.svg" alt="ASME Logo">
+        </div>
+
+        <div class="nav-group right">
+            <a href="/what-is-asme">WHAT IS ASME?</a>
+            <a href="/projects">PROJECTS</a>
+            <a href="/contact">CONTACT</a>
+        </div>
+
+    </div>
+</header>
+
+
+
+<section class="page-hero">
+    <div class="page-hero-content">
+        <h1>GET IN TOUCH</h1>
+        <p>
+            Interested in collaborating, sponsoring, or joining ASME BITS Pilani?
+            We'd love to hear from you.
+        </p>
+    </div>
+</section>
+
+<section class="contact-section">
+    <div class="contact-wrapper">
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>Email: asme@pilani.bits-pilani.ac.in</p>
+            <p>Location: BITS Pilani, Rajasthan, India</p>
+        </div>
+        
+
+        <% if (error) { %>
+        <div class="error-message">
+         Something went wrong. Please try again.
+        </div>
+         <% } %>
+        <form action="/contact" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">SEND MESSAGE</button>
+        </form>
+
+    </div>
+</section>
+<div id="toast" class="toast">
+  Message Submitted Successfully!
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+
+if (params.get("submitted") === "true") {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+
+  // Remove query param
+  window.history.replaceState({}, document.title, "/contact");
+
+  // Hide after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+</script>
+</body>
+</html>
