@@ -16,7 +16,7 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    padding-top: 18px;   /* small margin from top like reference */
+    padding-top: 20px;   /* small margin from top like reference */
     z-index: 100;
 }
 
@@ -62,11 +62,12 @@ body {
 .nav-logo {
     display: flex;
     justify-content: center;
-    padding : 0 30px;
+    padding : 0 15px;
 }
 
 .nav-logo img {
-    height: 70px;   /* slightly smaller for premium look */
+    height: 85px; 
+    width: 140px;  /* slightly smaller for premium look */
     opacity: 0.95;
 }
 .hero {
