@@ -30,8 +30,8 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-app.get("/about", (req, res) => {
-    res.render("about");
+app.get("/events", (req, res) => {
+    res.render("events");
 });
 
 app.get("/team", (req, res) => {
