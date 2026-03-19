@@ -793,7 +793,7 @@ body {
     margin: 0 auto;
     
     /* Pushes the text down from the navbar */
-    padding-top: 150px; 
+    padding-top: 200px; 
     
     /* Space between the button and the vision section below */
     padding-bottom: 80px; 
@@ -828,7 +828,7 @@ body {
 .page-hero-content {
     max-width: 900px;
     margin: 0 auto;
-    padding-top: 180px; 
+    padding-top: 100px; 
     padding-bottom: 60px;
     text-align: center;
     color: white;
@@ -1047,8 +1047,23 @@ body {
 
 /* --- EVENTS PAGE STYLES --- */
 
+/* 1. Kill the gap on the main section */
 .events-section {
-    padding: 0 20px 80px;
+    padding-top: 0 !important; 
+    margin-top: 0 !important;
+}
+
+/* 2. Kill the gap on the invisible wrapper div */
+.events-header {
+    padding-top: 50px !important; /* TWEAK THIS: This is your actual gap now */
+    margin-top: 0 !important;
+}
+
+/* 3. Kill the browser's default heading gap */
+.events-section h1, 
+.events-header h1 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 .events-container {
@@ -1159,4 +1174,146 @@ body {
 
 .impact-summary-card strong {
     color: #1e90ff;
+}
+
+
+
+
+
+/* --- GHOST / OUTLINE HERO TEXT --- */
+
+.hero-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px; /* Space between title and paragraph */
+}
+
+/* 1. The Massive Hollow 'ASME' */
+.ghost-text {
+    font-size: 110px; /* Make it absolutely huge */
+    font-weight: 900;
+    line-height: 0.9;
+    color: transparent; /* Makes the inside invisible */
+    -webkit-text-stroke: 2px #1e90ff; /* The bright blue outline */
+    letter-spacing: 4px;
+}
+
+/* 2. The Solid White 'BITS PILANI' */
+.solid-text {
+    font-size: 65px;
+    font-weight: 800;
+    color: #ffffff; /* Crisp white to pop against the dark background */
+    line-height: 1;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+/* 3. The Widely Spaced Motto */
+.motto-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #00d2ff; /* Glowing cyan */
+    letter-spacing: 12px; /* Pushes the letters far apart for a premium look */
+    text-transform: uppercase;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+/* We need this so the massive text doesn't break on phone screens! */
+@media (max-width: 768px) {
+    .ghost-text { font-size: 60px; -webkit-text-stroke: 1.5px #1e90ff; }
+    .solid-text { font-size: 40px; }
+    .motto-text { font-size: 12px; letter-spacing: 6px; }
+}
+
+/* --- 3D HOLOGRAPHIC BLUEPRINT CARDS --- */
+
+.hologram-card {
+    background: rgba(10, 15, 25, 0.7); /* Deep, dark tech blue/black */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 144, 255, 0.15);
+    border-radius: 16px;
+    padding: 35px 30px;
+    position: relative;
+    
+    /* CRUCIAL: Tells the browser this is a 3D object */
+    transform-style: preserve-3d; 
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* When the user hovers, the border glows blue */
+.hologram-card:hover {
+    border: 1px solid rgba(30, 144, 255, 0.6);
+    box-shadow: 0 10px 40px rgba(30, 144, 255, 0.2);
+}
+
+/* 1. The Blueprint Grid (Sits at the back) */
+.blueprint-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* Draws an engineering grid pattern using pure CSS */
+    background-image: 
+        linear-gradient(rgba(30, 144, 255, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 144, 255, 0.4) 1px, transparent 1px);
+    background-size: 25px 25px; /* Size of the grid squares */
+    
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.4s ease;
+    border-radius: 16px;
+    pointer-events: none;
+    
+    /* Pushes the grid physically backward in 3D space */
+    transform: translateZ(-20px); 
+}
+
+/* Fades the blueprint in when hovered */
+.hologram-card:hover .blueprint-bg {
+    opacity: 0.15;
+}
+
+/* 2. The Text Content (Pushed to the front) */
+.hologram-content {
+    /* Pushes the text physically FORWARD in 3D space, making it float! */
+    transform: translateZ(50px); 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* -- Standard Text Styling (Kept similar to what you had) -- */
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.hologram-card h2 {
+    font-size: 24px;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.hologram-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #e6e6e6;
+}
+
+.hologram-card strong {
+    color: #1e90ff; 
+}
+
+.event-stats {
+    margin-top: auto; 
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 15px;
+    color: #e6e6e6;
 }
